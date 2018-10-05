@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean name="company" class="com.springcore.domain.Company"
+		c:companyName="Google" c:yearOfIncorporation="1997" c:address-ref="address" />
+	<bean id="address" class="com.springcore.domain.Address" c:street="Staines Road"
+		c:city="London" c:zipCode="TW33GE" />
+</beans>

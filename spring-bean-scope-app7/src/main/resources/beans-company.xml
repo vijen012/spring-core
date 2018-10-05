@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- Singleton scope should be used for stateless(do not need to maintain state) bean -->
+<!-- Prototype scope should be used for statelful(to maintain the state or save field data) bean -->
+
+	<bean id="company" class="com.springcore.beanscope.domain.Company"
+		scope="prototype">
+		<!-- instead of index attribute better to use name attribute of constructor-args element -->
+		<constructor-arg name="companyName" value="Amazon"></constructor-arg>
+		<constructor-arg value="1998" name="yearOfIncorporation"></constructor-arg>
+		<property name="employeeCount" value="5000"></property>
+		<property name="postalCode" value="560100"></property>
+		<property name="tagLine" value="Work hard, Have fun and Make History !!!"></property>
+		<property name="businessService" ref="ecommerceService"></property>
+	</bean>
+
+	<bean id="cloudService"
+		class="com.springcore.beanscope.serviceimpl.CloudServiceImpl">
+	</bean>
+	
+	<bean id="ecommerceService"
+		class="com.springcore.beanscope.serviceimpl.EcommerceServiceImpl">
+	</bean>
+</beans>

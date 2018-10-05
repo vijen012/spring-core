@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean name="companyStaticFactory" class="core.springcore.beanfactory.Company"
+		factory-method="createInstance">
+		<constructor-arg value="Google" name="companyName" />
+		<constructor-arg value="1998" name="yearOfIncorporation" />
+	</bean>
+
+	<bean name="companyInstanceFactory"
+		class="core.springcore.beanfactory.Company"
+		factory-method="getInstance" factory-bean="companyFactory">
+		<constructor-arg value="Yahoo" name="companyName" />
+		<constructor-arg value="1997" name="yearOfIncorporation" />
+	</bean>
+
+	<bean id="companyFactory"
+		class="core.springcore.beanfactory.CompanyFactory">
+	</bean>
+</beans>

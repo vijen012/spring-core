@@ -1,0 +1,24 @@
+package com.springcore.domain;
+
+public class Company {
+	private String companyName;
+	private int yearOfIncorporation;
+	private Address address;
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public void setYearOfIncorporation(int yearOfIncorporation) {
+		this.yearOfIncorporation = yearOfIncorporation;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "Company [companyName=" + companyName + ", yearOfIncorporation=" + yearOfIncorporation + " address=" + address + "]";
+	}
+}

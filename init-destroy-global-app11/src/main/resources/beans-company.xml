@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-destroy-method="preDestroy"
+	default-init-method="postConstruct">
+
+	<!-- It's good practice to use global init and destroy method for the consistent naming of method accross all the
+	beans classes  -->
+
+	<bean name="company" class="com.springcore.domain.Company">
+		<!-- instead of index attribute better to use name attribute of constructor-args element -->
+		<constructor-arg name="companyName" value="Amazon"></constructor-arg>
+		<constructor-arg value="1998" name="yearOfIncorporation"></constructor-arg>
+		<property name="employeeCount" value="5000"></property>
+		<property name="postalCode" value="560100"></property>
+		<property name="tagLine" value="Work hard, Have fun and Make History !!!"></property>
+		<property name="businessService" ref="cloudService"></property>
+	</bean>
+
+	<bean id="cloudService"
+		class="com.springcore.serviceimpl.CloudServiceImpl">
+	</bean>
+
+	<bean id="ecommerceService"
+		class="com.springcore.serviceimpl.EcommerceServiceImpl">
+	</bean>
+</beans>

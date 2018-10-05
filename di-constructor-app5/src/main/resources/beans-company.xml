@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean name="company" class="com.springcore.di.domain.Company">
+		<!-- instead of index attribute better to use name attribute of constructor-args element -->
+		<constructor-arg name="companyName" value="Amazon"></constructor-arg>
+		<constructor-arg value="1998" name="yearOfIncorporation"></constructor-arg>
+		<property name="employeeCount" value="5000"></property>
+		<property name="postalCode" value="560100"></property>
+		<property name="tagLine" value="Work hard, Have fun and Make History !!!"></property>
+		<property name="businessService" ref="ecommerceService"></property>
+	</bean>	
+	<bean id="cloudService"
+		class="com.springcore.di.serviceimpl.CloudServiceImpl">
+	</bean>
+	
+	<bean id="ecommerceService"
+		class="com.springcore.di.serviceimpl.EcommerceServiceImpl">
+	</bean>
+	<bean id="agency"
+		class="com.springcore.di.serviceimpl.AgencyRecruitmentServiceImpl">
+	</bean>
+	<bean id="referral"
+		class="com.springcore.di.serviceimpl.ReferralRecruitmentServiceImpl">
+	</bean>
+	<bean id="hrdept"
+		class="com.springcore.di.domain.HumanResourceDept">
+	<constructor-arg name="recruitmentService" ref="referral"></constructor-arg>
+	<constructor-arg name="company" ref="company"></constructor-arg>
+	<property name="deptName" value="Human Resource Department"></property>
+	</bean>
+</beans>

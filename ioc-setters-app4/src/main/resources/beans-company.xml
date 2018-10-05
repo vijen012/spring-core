@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean name="company"
+		class="core.springcore.ioc.setters.Company">
+		<!-- instead of index attribute better to use name attribute of constructor-args element -->
+		<constructor-arg value="Google" name="companyName"></constructor-arg>
+		<constructor-arg value="1998" name="yearOfIncorporation"></constructor-arg>
+		<property name="employeeCount" value="5000"></property>
+		<property name="postalCode" value="560100"></property>
+	</bean>
+</beans>
